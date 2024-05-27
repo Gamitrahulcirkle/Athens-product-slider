@@ -1,0 +1,203 @@
+{{ "tabs-section.css" | asset_url | stylesheet_tag }}
+<section class="tab_section" data-name="tabs-section">
+  <div class="container">
+    <div class="tabing_block">
+      <div class="tab_view_wp has_parent">
+        <div class="tab_container">
+          <ul class="product-tabs tabs">
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when "tab" %}
+                  {% if block.settings.tab_title != blank %}
+                    <li class="tab_link {% if forloop.first %}current active {% endif %}" data-tab="tab-{{ forloop.index }}">
+                      <a href="javascript:void(0)" class="tab_item">{{ block.settings.tab_title }}</a>
+                    </li>
+                  {% endif %}
+                {% when "product_description" %}
+                  {% if block.settings.tab_title != blank %}
+                    <li class="tab_link {% if forloop.first %}current active {% endif %}" data-tab="tab-{{ forloop.index }}">
+                      <a href="javascript:void(0)" class="tab_item">{{ block.settings.tab_title }}</a>
+                    </li>
+                  {% endif %}
+              {% endcase %}
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="tab_content_wp">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when "tab" %}
+                {% if block.settings.tab_title != blank %}
+                  <div id="tab-{{ forloop.index }}" class="tab_content {% if forloop.first %} current{% endif %}">
+                    <div class="tab_content_slider">
+                      <div class="tab_text_wp">
+                        <div class="tab_text">
+                          {{ block.settings.tab_content }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+               {% endif %}
+              {% when "product_description" %}
+                 {% if block.settings.tab_title != blank %}
+                  <div id="tab-{{ forloop.index }}" class="tab_content {% if forloop.first %}current{% endif %}">
+                    <div class="tab_content_slider">
+                      <div class="tab_text_wp">
+                        <div class="tab_text">
+                          {% if block.settings.tab_content != blank %}
+                            {{ block.settings.tab_content }}
+                          {% else %}
+                            {{ product.description }}
+                          {% endif %}  
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+            {% endcase %}
+          {% endfor %}                      
+        </div>
+    </div>
+
+    {% capture productMeta %}  
+      {% if section.settings.image != blank or section.settings.short_description != blank %}
+        <div class="tab_right_info ">
+          <h2 class="color-accent-1">Plant Details</h2>
+          {{ section.settings.short_description }}
+          {% if section.settings.image != blank %}
+            <div class="tab_right_img">
+              {{ section.settings.image | image_url:width:section.settings.image.width | image_tag }}              
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+     {% endcapture %}
+     
+     {% if productMeta != blank %}
+       <div class="tab_right">
+         <div class="tab_right_inner">
+           {{ productMeta }}
+           <div class="scientific_name_area center">
+             <h6>{{ section.settings.scientific_title }}</h6>
+             <p>{{ section.settings.scientific_name }}</p>
+           </div>
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when "Content" %}
+                <div class="scientific_name_area">
+                  {% if block.settings.title != blank %}
+                  <h6>{{ block.settings.title }}</h6>
+                  {% endif %}
+
+                  {% if block.settings.tab_content != blank %}
+                  <p>{{ block.settings.tab_content }}</p>
+                  {% endif %}
+                </div>
+              {% endcase %}
+            {% endfor %}
+         </div>
+       </div>
+     {% endif %}      
+    </div>
+  </div>
+</section>
+<script>
+  $(document).ready(function () {
+    $('ul.product-tabs li').click(function () {
+      var tab_id = $(this).attr('data-tab');
+      $(this).closest('.has_parent').find('ul.product-tabs li').removeClass('current');
+      $(this).closest('.has_parent').find('.tab_content').removeClass('current');
+      $(this).addClass('current');
+      $("#" + tab_id).addClass('current');
+    });
+  });
+</script>
+            
+{% schema %}
+  {
+    "name": "Tabs section",
+    "enabled_on": {
+      "templates": ["product"]    
+    },
+    "settings": [
+      
+      {
+        "type":"text",
+        "id":"short_description",
+        "label":"Short description"
+      },
+      {
+        "type":"image_picker",
+        "id":"image",
+        "label":"Imange"
+      },
+      {
+        "type":"text",
+        "id":"scientific_title",
+        "label":"Plant Name"
+      },
+      {
+        "type":"text",
+        "id":"scientific_name",
+        "label":"Scientific Name"
+      }
+    ],
+    "blocks":[
+      {
+        "type":"product_description",
+        "name":"Product Description",
+        "limit":1,
+        "settings":[
+          {
+            "type":"text",
+            "id":"tab_title",
+            "label":"Tab title"
+          },          
+          {
+            "type":"richtext",
+            "id":"tab_content",
+            "label":"Tab content"
+          }
+        ]
+      },
+      {
+        "type":"tab",
+        "name":"Tab content",
+        "limit":4,
+        "settings":[
+          {
+            "type":"text",
+            "id":"tab_title",
+            "label":"Tab title"
+          },
+          {
+            "type":"richtext",
+            "id":"tab_content",
+            "label":"Tab content"
+          }
+        ]
+      },
+      {
+        "type":"Content",
+        "name":"Meta Info",
+        "settings":[
+          {
+            "type":"text",
+            "id":"title",
+            "label":"Tab title"
+          },
+          {
+            "type":"text",
+            "id":"tab_content",
+            "label":"Tab content"
+          }
+        ]
+      }
+    ],
+    "presets":[
+      {
+        "name":"Tabs section"
+      }
+    ]
+  }
+{% endschema %}

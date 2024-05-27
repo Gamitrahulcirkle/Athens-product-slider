@@ -1,0 +1,101 @@
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+
+{% if collection == null or collection.handle == 'frontpage' or collection.handle == 'all' %}
+  {% assign found_a_collection = false %}
+  {% for c in product.collections %}
+  {% if found_a_collection == false and c.handle != 'frontpage' and c.handle != 'all' and c.all_products_count > 1 %}
+  {% assign found_a_collection = true %}
+  {% assign collection = c %}
+  {% endif %}
+  {% endfor %}
+  {% endif %}
+
+  {% if collection and collection.products_count > 1 %}
+    
+  <div class="container colContents relatedProductC clearboth" id="relatedProduct">
+    <div class="colProductsList fullwidthGrid">
+      <div class="row products text-center collection-matrix">
+        <h3 class="mobileOnly">{{ section.settings.title }}</h3>
+        <div class="relatedslider grid product-grid-col" data-slider="yes" >
+          {% assign products_per_row = 'x' %}
+          {% assign current_product = product %}
+          {% assign current_product_found = false %}
+          {% for product in collection.products limit: 7 %}
+            {% if product.handle == current_product.handle %}
+              {% assign current_product_found = true %}
+            {% else %}
+              {% unless current_product_found == false and forloop.last %}
+                <div class="grid-item">
+                  <a href="{{ product.url }}">
+                    <img src="{{ product.featured_media | img_url: 'x350' }}" alt="{{ product.title }}">
+                    <div class="card-overlay-info">
+                      <h3 class="card-overlay-heading">{{ product.title }}</h3>
+                    </div>
+                  </a>
+                </div>
+              {% endunless %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+<script>
+  $(document).ready(function(){
+    $('.relatedslider, .recentslider').slick({
+  dots: true,
+  infinite: false,
+  speed: 300,
+  slidesToShow: 5,
+  slidesToScroll: 4,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+});
+  })
+</script>
+{% schema %}
+    {
+    "name": "Related Product",
+    "settings": [
+      {
+        "type": "text", 
+        "id": "title", 
+        "label": "Title"
+      }
+    ],    
+	"presets": [{
+      "name": "Related Product"
+    }]
+  }
+{% endschema %}
+

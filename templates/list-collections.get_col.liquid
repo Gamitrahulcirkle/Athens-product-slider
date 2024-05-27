@@ -1,0 +1,7 @@
+{% layout none %}
+{% paginate collections by 1000 %}
+{% for collection in collections  %}
+  {% render 'card-collection', collection: collection, title: collection.title, overlay: true %}
+{% endfor %}
+    {% render 'pagination', paginate: paginate %}
+{% endpaginate %}

@@ -1,0 +1,198 @@
+.tabs li {
+  padding: 0 15px;
+  position: relative;
+}
+.tabs li:first-child {
+  padding-left: 0;
+}
+.tabs li a {
+  padding: 6px 0;
+  text-transform: uppercase;
+  display: block;
+}
+.tabs li a,
+.tabs li a:hover,
+.tabs li.active a {
+  color: var(--theme-color);
+}
+
+.tab_view_section {
+  margin: 50px 0;
+}
+.tabs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: var(--inputs-border-width) solid var(--color-border);
+  padding:0;
+}
+.tabs .tab_link {
+  list-style: none;
+}
+.tabs .tab_link .tab_item {
+  text-transform: uppercase;
+  white-space: normal;
+  text-decoration: none;
+  text-align: center;
+  letter-spacing: 0;
+  font-size: 14px;
+}
+.tab_content_wp {
+  margin-top: 50px;
+}
+.img-side {
+  position: relative;
+  padding-top: 100%;
+  width: 100%;
+}
+.img-side img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+.img_side_wp,
+.tab_text_wp {
+  width: 100%;
+}
+.tab_text {
+  max-width: 800px;
+  width: 100%;
+  margin: 0;
+}
+.tab_text h1 {
+  text-transform: capitalize;
+}
+.tab_text p {
+  margin-top: 20px;
+}
+.tab_view_wp .tab_content {
+  display: none;
+}
+.tab_view_wp .tab_content.current {
+  display: block;
+}
+.tabing_block {
+  display: flex;
+  flex-wrap: wrap;
+}
+.tab_view_wp.has_parent {
+  width: 70%;
+  margin-right: 20px;
+}
+.tab_right {
+  flex: 1;
+}
+ul.tabs .tab_link.current .tab_item {
+  border-bottom: 1px solid #000;
+}
+.tab_right_info h2 {
+  background: rgb(var(--color-background));
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #fff;
+  padding: 4px;  
+}
+.tab_right > .tab_right_inner {
+    border: var(--inputs-border-width) solid var(--color-border);
+    padding: 12px;
+    background: #f6f6f6;
+}
+
+
+.scientific_name_area {
+  padding-bottom: 15px;
+}
+.scientific_name_area h6 {
+  margin-bottom: 0;
+}
+.scientific_name_area p {
+  margin-bottom: 0;
+}
+h1.product-info-heading.h2 {
+  margin-bottom: 0;
+}
+.tab_right_info {
+    border: var(--inputs-border-width) solid var(--color-border);
+    text-align: center;
+}
+.tab_right_img {
+  width: 95%;
+  position: relative;
+  padding-top: 60%;
+  margin: 0 auto 10px;
+}
+.tab_right_img img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  object-fit: cover;
+}
+.tab_right_info:not(:last-child) {
+  margin-bottom: 15px;
+}
+.tab_right_info p span {
+  display: block;
+  margin-bottom: 10px;
+}
+.scientific_name_area.center {
+  text-align: center;
+  padding-bottom: 20px;
+}
+.meta_info {
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+    justify-content: space-between;
+}
+.pro_title_mobile p{
+  margin-bottom: 0;
+  font-size: 12px;
+}
+.pro_title_mobile h4 {
+  margin-bottom: 0;
+}
+.pro_title_mobile {
+  display: none;
+}
+@media only screen and (max-width: 767px) {
+  .tab_view_wp.has_parent {
+    width: 100%;
+    margin-right: 0;
+  }
+  .tab_right {
+    flex: 0 0 100%;
+  }
+  .tabs .tab_link .tab_item {
+    padding: 10px 5px;
+    font-size: 12px;
+  }
+  .product-info-wrap .block-section{
+    margin-top: 2rem;
+  }
+  .pro_title_mobile {
+    display: block;
+    padding-top: 10px;
+  }
+  .product-info-secondary,
+  .product-info-main {
+    display: none;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .tabs .tab_link {
+    width: 50%;
+    margin: 0;
+    padding: 0;
+  }
+
+
+}

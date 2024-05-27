@@ -1,0 +1,104 @@
+{% comment %}
+    Renders a customizable banner card.
+
+    Accepts:
+    - image: {Object} Optional. Image object.
+    - mobile_image: {Object} Optional. Mobile image object.
+    - title: {String} Optional. The title.
+    - description: {String} Optional. The description.
+    - button_link: {String} Optional. Button link.
+    - button_text: {String} Optional. Button text.
+    - show_title: {Boolean} Show title when true. Default true.
+    - show_description: {Boolean} Show description when true. Default true.
+    - show_button: {Boolean} Show button when true. Default true.
+    - overlay: {Boolean} Show overlay when true. Default true.
+    - class: {String} Optional. CSS class.
+    - ratio: {Number} Optional. The ratio to display the card at.
+    - columns {Number} Optional. The number of columns the card is rendered in.
+    - id: {String} Optional. HTML id.
+    - card_clickable_desktop: {Boolean} Optional. Whether the card should be clickable on desktop.
+    - settings: {Object} Optional. The card settings.
+    - settings.box_align: {String} Content alignment for desktop.
+    - settings.mobile_box_align: {String} Content alignment for mobile.
+    - settings.heading_size: {String} Title size for desktop.
+    - settings.mobile_heading_size: {String} Title size for mobile.
+    - settings.text_color: {String} Title size for mobile.
+
+    Usage:
+    {% render 'card-banner' title: title, image: image %}
+{% endcomment %}
+
+<div
+	{% if id != blank %}id="{{ id }}" {% endif %}
+	class="card-overlay {% unless overlay == false %}card-overlay-on{% else %}card-overlay-off{% endunless %} {% if mobile_image %}card-overlay-with-mobile-media{% endif %} {% if card_clickable_desktop %}card-pointer-all{% endif %} {{ class }}"
+	{% unless ratio == nil or ratio == 0 %}
+		style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
+	{% endunless %}
+>
+	{% if button_link %}
+		<a href="{{ button_link }}">
+	{% endif %}
+
+	{% if image != blank %}
+		{%- capture image_sizes -%}
+			{% if columns == 1 %}
+				(min-width: 1420px) 1420px, calc(100vw - 3rem)
+			{% else %}
+				(min-width: 1200px) calc((100vw - 6rem) / 2), (min-width: 990px) calc((100vw - 6rem) * 0.6), (min-width: 750px) calc(100vw - 4rem), calc(100vw - 3rem)
+			{% endif %}
+		{%- endcapture -%}
+		{{ image | image_url: width: 1420 | image_tag:
+			class: 'card-overlay-media card-overlay-media-desktop',
+			loading: 'lazy',
+			sizes: image_sizes,
+			widths: '165, 440, 650, 850, 1100, 1200, 1420'
+		}}
+
+		{% if mobile_image %}
+			{{ mobile_image | image_url: width: 1420 | image_tag:
+				class: 'card-overlay-media card-overlay-media-mobile',
+				loading: 'lazy',
+				sizes: image_sizes,
+				widths: '165, 440, 650, 850, 1100, 1200, 1420'
+			}}
+		{% endif %}
+	{% else %}
+		{{ 'collection-1' | strip | placeholder_svg_tag: "card-overlay-media" }}
+	{% endif %}
+
+	{% unless title == blank %}
+		<span class="visually-hidden">{{ title }}</span>
+	{% endunless %}
+
+	{% if button_link %}
+		</a>
+	{% endif %}
+
+	<div class="card-overlay-info content-align-{{ settings.mobile_box_align }} content-align-desktop-{{ settings.box_align }}" style="color: {{ settings.text_color }}">
+		{%- unless show_title == false or title == blank -%}
+			<h3 class="card-overlay-heading card-overlay-heading-{{ settings.mobile_heading_size }} card-overlay-heading-desktop-{{ settings.heading_size }}">
+			{%- if button_link -%}
+				<a href="{{ button_link }}">
+			{%- endif -%}
+				{{ title }}
+			{%- if button_link -%}
+				</a>
+			{%- endif -%}
+			</h3>
+		{%- endunless -%}
+
+		{%- unless show_description == false or description == blank -%}
+			<div class="card-overlay-caption">
+				{{ description }}
+			</div>
+		{%- endunless -%}
+
+		{%- unless show_button == false or button_text == blank or button_link == blank -%}
+			<a
+				href="{{ button_link }}"
+				class="{% if settings.button_type_link %}button-text-link{% else %}button color-button-{{ settings.button_color_scheme }}{% endif %}">
+				{{ button_text }}
+			</a>
+		{%- endunless -%}
+	</div>
+</div>

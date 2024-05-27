@@ -1,0 +1,119 @@
+/* Component - Pickup Availability
+=================================== */
+.product-pickup-availabilities {
+  margin-top: 4rem;
+  display: block;
+}
+
+.pickup-availability-preview {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.pickup-availability-preview .status-dot {
+  position: relative;
+  top: 0.1rem;
+}
+
+.pickup-availability-button {
+  padding: 0;
+  text-decoration: none;
+  margin-top: 0.5rem;
+}
+
+.pickup-availability-info {
+  font-size: calc(var(--font-body-scale) * 1.4rem);
+}
+
+.pickup-availability-info > * {
+  margin-bottom: 0;
+}
+
+.pickup-availability-title-location {
+  font-weight: 700;
+}
+
+.pickup-availability-time {
+  font-size: calc(var(--font-body-scale) * 1.3rem);
+}
+
+/* Pickup Availability Drawer
+=================================== */
+.pickup-availability-drawer {
+  z-index: 1000;
+  will-change: transform;
+}
+
+.pickup-availability-drawer-open .pickup-availability-drawer {
+  transform: translateX(0);
+}
+
+.pickup-availability-variant {
+  margin-top: -1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.pickup-availability-list-item {
+  display: flex;
+  align-items: flex-start;
+  grid-gap: 1rem;
+  font-size: calc(var(--font-body-scale) * 1.4rem);
+  border-bottom: 1px dotted var(--color-border);
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+}
+
+.pickup-availability-list-item-content > * {
+  margin-bottom: 0;
+}
+
+.pickup-availability-list-item-content :last-child {
+  margin-bottom: 0;
+}
+
+.pickup-availability-list-item-content .pickup-availability-preview {
+  margin-bottom: 1rem;
+}
+
+.pickup-availability-list-item-title {
+  font-size: calc(var(--font-body-scale) * 1.5rem);
+}
+
+/* Status dots
+=================================== */
+.status-dot {
+  width: 1.9rem;
+  height: 1.9rem;
+  background: rgba(var(--color-foreground), 0.3);
+  color: rgba(var(--color-foreground), 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  line-height: 0;
+  flex: none;
+}
+
+.status-dot::after {
+  content: "";
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.status-dot-success {
+  background: var(--color-success-background);
+  color: var(--color-success);
+}
+
+.status-dot-error {
+  background: var(--color-error-background);
+  color: var(--color-error);
+}
+
+.status-dot-warning {
+  background: var(--color-warning-background);
+  color: var(--color-warning);
+}

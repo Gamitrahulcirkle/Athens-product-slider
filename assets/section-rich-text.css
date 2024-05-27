@@ -1,0 +1,21 @@
+/* Section - Rich text
+=================================== */
+.section-rich-text {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.rich-text-align-left {
+  text-align: left;
+}
+
+.rich-text-align-center {
+  text-align: center;
+}
+
+.section-rich-text .rich-text-text,
+.section-rich-text .page-content,
+.section-rich-text .button {
+  margin-top: var(--spacing-base-1);
+}

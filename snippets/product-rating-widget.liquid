@@ -1,0 +1,15 @@
+{% comment %} Yotpo {% endcomment %}
+<div class="yotpo bottomLine yotpo-rating-badge star-rating-badge" data-product-id="{{ product.id }}"></div>
+
+{% comment %} Stamped {% endcomment %}
+<span class="stamped-product-reviews-badge stamped-main-badge star-rating-badge"
+	data-id="{{ product.id }}"
+	data-product-sku="{{ product.handle }}"
+	data-product-title="{{ product.title }}"
+	data-product-type="{{ product.type }}"></span>
+
+{% comment %} Judge.me {% endcomment %}
+<div style="{{ jm_style }}" class="jdgm-widget jdgm-preview-badge star-rating-badge" data-id="{{ product.id }}">{{ product.metafields.judgeme.badge }}</div>
+
+{% comment %} Shopify {% endcomment %}
+{% render 'rating', product: product %}

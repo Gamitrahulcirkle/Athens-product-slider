@@ -1,0 +1,417 @@
+{
+  "sections": {
+    "d2b66383-dc8c-4fd9-8ef4-3b6e6f1df00b": {
+      "type": "slideshow",
+      "blocks": {
+        "template--16225314144409__d2b66383-dc8c-4fd9-8ef4-3b6e6f1df00b-slide-1": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Meet-The-Wilson-Bros-12-14-2017.jpg",
+            "overlay_background": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.8) 100%)",
+            "heading": "",
+            "heading_size": "md",
+            "subheading": "",
+            "text_color": "#ffffff",
+            "button_label": "",
+            "button_type_link": false,
+            "button_color_scheme": "button-primary",
+            "link": "",
+            "box_align": "bottom-left",
+            "content_width": 60,
+            "mobile_heading_size": "md",
+            "mobile_box_align": "bottom-left"
+          }
+        },
+        "template--16225314144409__d2b66383-dc8c-4fd9-8ef4-3b6e6f1df00b-slide-2": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "overlay_background": "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%)",
+            "heading": "Image slide",
+            "heading_size": "md",
+            "subheading": "<p>Tell your brand's story through images<\/p>",
+            "text_color": "#ffffff",
+            "button_label": "Button label",
+            "button_type_link": false,
+            "button_color_scheme": "button-primary",
+            "link": "",
+            "box_align": "bottom-left",
+            "content_width": 60,
+            "mobile_heading_size": "md",
+            "mobile_box_align": "bottom-left"
+          }
+        }
+      },
+      "block_order": [
+        "template--16225314144409__d2b66383-dc8c-4fd9-8ef4-3b6e6f1df00b-slide-1",
+        "template--16225314144409__d2b66383-dc8c-4fd9-8ef4-3b6e6f1df00b-slide-2"
+      ],
+      "settings": {
+        "full_width": true,
+        "slide_height": "adapt_image",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "animation_type": "slide",
+        "accessibility_info": "",
+        "color_scheme": "background-1",
+        "spacing_top": 0,
+        "spacing_bottom": 0
+      }
+    },
+    "9a439001-c806-4185-b147-580a6bb8c75b": {
+      "type": "features",
+      "blocks": {
+        "template--16225314144409__9a439001-c806-4185-b147-580a6bb8c75b-feature-1": {
+          "type": "feature",
+          "settings": {
+            "icon": "truck",
+            "title": "Free Ground Home Delivery",
+            "text": "<p>Safe Delivery GUARANTEED!<\/p>"
+          }
+        },
+        "template--16225314144409__9a439001-c806-4185-b147-580a6bb8c75b-feature-2": {
+          "type": "feature",
+          "settings": {
+            "icon": "box",
+            "title": "We take the Utmost Care",
+            "text": "<p>See how we package your plants<\/p>"
+          }
+        },
+        "template--16225314144409__9a439001-c806-4185-b147-580a6bb8c75b-feature-3": {
+          "type": "feature",
+          "settings": {
+            "icon": "user",
+            "title": "Google Reviews",
+            "text": "<p>Check our Google Customer Reviews<\/p>"
+          }
+        },
+        "template--16225314144409__9a439001-c806-4185-b147-580a6bb8c75b-feature-4": {
+          "type": "feature",
+          "disabled": true,
+          "settings": {
+            "icon": "check",
+            "title": "Feature",
+            "text": "<p>Pair text with an icon to focus on your store's features.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--16225314144409__9a439001-c806-4185-b147-580a6bb8c75b-feature-1",
+        "template--16225314144409__9a439001-c806-4185-b147-580a6bb8c75b-feature-2",
+        "template--16225314144409__9a439001-c806-4185-b147-580a6bb8c75b-feature-3",
+        "template--16225314144409__9a439001-c806-4185-b147-580a6bb8c75b-feature-4"
+      ],
+      "settings": {
+        "inline": true,
+        "stack_on_mobile": true,
+        "icon_size": "large",
+        "color_scheme": "background-1",
+        "spacing_top": 60,
+        "spacing_bottom": 60
+      }
+    },
+    "91403535-5ea3-447f-91a0-3a858ff4d820": {
+      "type": "pagefly-section",
+      "settings": {
+        "section_id": "pf-550f68e4"
+      }
+    },
+    "48e0a075-84a5-4ceb-a808-3dc83f45c7e6": {
+      "type": "features",
+      "blocks": {
+        "template--16225314144409__48e0a075-84a5-4ceb-a808-3dc83f45c7e6-feature-1": {
+          "type": "feature",
+          "settings": {
+            "icon": "arrow-right",
+            "title": "See what's on sale now",
+            "text": ""
+          }
+        },
+        "template--16225314144409__48e0a075-84a5-4ceb-a808-3dc83f45c7e6-feature-2": {
+          "type": "feature",
+          "settings": {
+            "icon": "arrow-right",
+            "title": "See what's new",
+            "text": ""
+          }
+        },
+        "template--16225314144409__48e0a075-84a5-4ceb-a808-3dc83f45c7e6-feature-3": {
+          "type": "feature",
+          "settings": {
+            "icon": "check",
+            "title": "Win a $25 Gift Card",
+            "text": "<p><a href=\"Https:\/\/mailchi.mp\/wilsonbrosgardens.com\/enter\">https:\/\/mailchi.mp\/wilsonbrosgardens.com\/enter-to-win-a-25-dollar-gift-card<\/a><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--16225314144409__48e0a075-84a5-4ceb-a808-3dc83f45c7e6-feature-1",
+        "template--16225314144409__48e0a075-84a5-4ceb-a808-3dc83f45c7e6-feature-2",
+        "template--16225314144409__48e0a075-84a5-4ceb-a808-3dc83f45c7e6-feature-3"
+      ],
+      "disabled": true,
+      "settings": {
+        "inline": false,
+        "stack_on_mobile": true,
+        "icon_size": "large",
+        "color_scheme": "background-2",
+        "spacing_top": 60,
+        "spacing_bottom": 60
+      }
+    },
+    "brands": {
+      "type": "brands",
+      "blocks": {
+        "collection-0": {
+          "type": "collection",
+          "settings": {
+            "collection": "azaleas",
+            "link": ""
+          }
+        },
+        "collection-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "bamboo-plants",
+            "link": ""
+          }
+        },
+        "collection-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "boxwood-shrubs",
+            "link": ""
+          }
+        },
+        "collection-3": {
+          "type": "collection",
+          "settings": {
+            "collection": "camellias_c_689",
+            "link": ""
+          }
+        },
+        "collection-4": {
+          "type": "collection",
+          "settings": {
+            "collection": "clematis",
+            "link": ""
+          }
+        },
+        "collection-5": {
+          "type": "collection",
+          "settings": {
+            "collection": "all-crape-myrtle-trees-and-shrubs-wilson-bros-gardens",
+            "link": ""
+          }
+        },
+        "collection-6": {
+          "type": "collection",
+          "settings": {
+            "collection": "all-encore-azaleas",
+            "link": ""
+          }
+        },
+        "6f318215-32be-4f31-9907-d06c9ecb4c88": {
+          "type": "collection",
+          "settings": {
+            "collection": "eucalyptus-trees_c_1220",
+            "link": ""
+          }
+        },
+        "813eeea2-9c60-4948-9d8d-eb6dd8323397": {
+          "type": "collection",
+          "settings": {
+            "collection": "fragrant-plants-and-trees",
+            "link": ""
+          }
+        },
+        "4e5bff84-89f7-4ac1-8c81-24678abf36e6": {
+          "type": "collection",
+          "settings": {
+            "collection": "fruit-trees-and-berry-plants",
+            "link": ""
+          }
+        },
+        "215e03c7-a7be-4b1a-bb75-d99ed03fc8e3": {
+          "type": "collection",
+          "settings": {
+            "collection": "gardenias_c_1004",
+            "link": ""
+          }
+        },
+        "ccc87cdd-fe80-4885-b5be-25a65f76c6ab": {
+          "type": "collection",
+          "settings": {
+            "collection": "groundcover-plants",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection-0",
+        "collection-1",
+        "collection-2",
+        "collection-3",
+        "collection-4",
+        "collection-5",
+        "collection-6",
+        "6f318215-32be-4f31-9907-d06c9ecb4c88",
+        "813eeea2-9c60-4948-9d8d-eb6dd8323397",
+        "4e5bff84-89f7-4ac1-8c81-24678abf36e6",
+        "215e03c7-a7be-4b1a-bb75-d99ed03fc8e3",
+        "ccc87cdd-fe80-4885-b5be-25a65f76c6ab"
+      ],
+      "settings": {
+        "heading": "Shop by Category",
+        "layout": "grid",
+        "columns": 4,
+        "stack_on_mobile": false,
+        "image_ratio": "adapt",
+        "color_scheme": "background-1",
+        "spacing_top": 60,
+        "spacing_bottom": 60
+      }
+    },
+    "collection-grid": {
+      "type": "collection-grid",
+      "disabled": true,
+      "settings": {
+        "heading": "Also popular",
+        "link_title": "All categories",
+        "link_url": "shopify:\/\/collections",
+        "collections": [
+
+        ],
+        "show_image": true,
+        "columns": 4,
+        "color_scheme": "background-1",
+        "spacing_top": 60,
+        "spacing_bottom": 60
+      }
+    },
+    "46bd0f05-58a0-4cfe-8e6b-ade267f301a9": {
+      "type": "filters",
+      "blocks": {
+        "template--16225314144409__46bd0f05-58a0-4cfe-8e6b-ade267f301a9-filter-1": {
+          "type": "filter",
+          "settings": {
+            "title": "Advice",
+            "placeholder": "Search an advice...",
+            "tooltip": ""
+          }
+        },
+        "template--16225314144409__46bd0f05-58a0-4cfe-8e6b-ade267f301a9-filter-2": {
+          "type": "filter",
+          "settings": {
+            "title": "Search a plan",
+            "placeholder": "Search a plant...",
+            "tooltip": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16225314144409__46bd0f05-58a0-4cfe-8e6b-ade267f301a9-filter-1",
+        "template--16225314144409__46bd0f05-58a0-4cfe-8e6b-ade267f301a9-filter-2"
+      ],
+      "settings": {
+        "full_width": true,
+        "heading": "",
+        "collections": [
+
+        ],
+        "collections_label": "Select...",
+        "collections_tooltip": "",
+        "color_scheme": "background-1",
+        "spacing_top": 60,
+        "spacing_bottom": 60
+      }
+    },
+    "6f8e5197-7971-40a0-92a9-3fadf54c7f4d": {
+      "type": "multicolumn",
+      "blocks": {
+        "template--16225314144409__6f8e5197-7971-40a0-92a9-3fadf54c7f4d-column-1": {
+          "type": "column",
+          "settings": {
+            "search_option": "article",
+            "search": true,
+            "search_place": "Enter a word or phrase here. eg: camella",
+            "image": "shopify:\/\/shop_images\/Advice-Icon-min.png",
+            "image_width": 60,
+            "title": "Search Our Advice",
+            "text": "<p>Type a word or phrase in the search box and a list of helpful expert articles related to your keywords will appear in the list below.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "template--16225314144409__6f8e5197-7971-40a0-92a9-3fadf54c7f4d-column-2": {
+          "type": "column",
+          "settings": {
+            "search_option": "product",
+            "search": true,
+            "search_place": "Enter a word or phrase here. eg: camella",
+            "image": "shopify:\/\/shop_images\/Plant-Search-Icon-min.png",
+            "image_width": 60,
+            "title": "Search our plants",
+            "text": "<p>Enter search words such as plant name, colors, butterflies, hummingbirds, growth rate: fast, slow, etc.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "template--16225314144409__6f8e5197-7971-40a0-92a9-3fadf54c7f4d-column-3": {
+          "type": "column",
+          "settings": {
+            "search_option": "product",
+            "search": false,
+            "search_place": "",
+            "image": "shopify:\/\/shop_images\/Question-Icon-min.png",
+            "image_width": 60,
+            "title": "Frequently Asked Questions",
+            "text": "<p>Here you will find answers to a few of the most commonly asked questions about our shipping, guarantees, best planting time, etc.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "a282bfee-9ab5-4670-b21b-00893db6c2a5": {
+          "type": "column",
+          "settings": {
+            "search_option": "product",
+            "search": false,
+            "search_place": "",
+            "image": "shopify:\/\/shop_images\/Navigation-Icon-min.png",
+            "image_width": 60,
+            "title": "Navigation Tips",
+            "text": "<p>Here you will find helpful tips for navigatin Wilson Bros Gardens to find the treasures your looking for!<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16225314144409__6f8e5197-7971-40a0-92a9-3fadf54c7f4d-column-1",
+        "template--16225314144409__6f8e5197-7971-40a0-92a9-3fadf54c7f4d-column-2",
+        "template--16225314144409__6f8e5197-7971-40a0-92a9-3fadf54c7f4d-column-3",
+        "a282bfee-9ab5-4670-b21b-00893db6c2a5"
+      ],
+      "settings": {
+        "title": "",
+        "columns": 2,
+        "column_alignment": "left",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "spacing_top": 34,
+        "spacing_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "d2b66383-dc8c-4fd9-8ef4-3b6e6f1df00b",
+    "9a439001-c806-4185-b147-580a6bb8c75b",
+    "91403535-5ea3-447f-91a0-3a858ff4d820",
+    "48e0a075-84a5-4ceb-a808-3dc83f45c7e6",
+    "brands",
+    "collection-grid",
+    "46bd0f05-58a0-4cfe-8e6b-ade267f301a9",
+    "6f8e5197-7971-40a0-92a9-3fadf54c7f4d"
+  ]
+}

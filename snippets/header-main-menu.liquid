@@ -1,0 +1,147 @@
+{% comment %}
+	Renders the site's main menu
+
+	Accepts:
+	- menu: {Object} Menu (linklist) object
+	- blocks: {Array} Section blocks array for mega menu. Optional
+	- align_right: {Boolean} Right-aligns the menu when true. Optional. Default: false
+
+	Usage:
+	{% render 'header-main-menu', menu: main_menu, blocks: section.blocks, aligh_right: true %}
+{% endcomment %}
+
+<ul class="navigation-menu navigation-main {% if align_right %} navigation-menu-end {% endif %}" role="list">
+	{%- for link in menu.links -%}
+		{% liquid
+			assign is_mega = false
+			for block in blocks
+				if block.settings.menu_item == link.title
+					assign is_mega = true
+					assign mega_block = block
+				endif
+			endfor
+		%}
+
+		<li class="navigation-item
+			{% if forloop.first and align_right %} navigation-item-end {% endif %}
+			{% if is_mega %} navigation-item-static {% endif %}
+			{% if link.links != blank %} has-sub-menu {% endif %}"
+		>
+			<a
+				href="{{ link.url }}"
+				{%- if link.current -%} aria-current="page" class="current"{%- endif -%}
+			>
+				{{ link.title | escape }}
+				{%- if link.links != blank -%}
+					{% render 'icon-angle' %}
+				{%- endif -%}
+			</a>
+
+			{% if is_mega %}
+				<div class="navigation-sub-menu mega-menu mega-menu-feature-{{ mega_block.settings.side_position }} color-{{ section.settings.navigation_submenu_color_scheme }}">
+					<div class="container">
+						<div class="mega-menu-container">
+							<div class="mega-menu-columns">
+								{%- for childlink in link.links -%}
+									<div class="mega-menu-column">
+										<a
+											href="{{ childlink.url }}"
+											class="mega-menu-column-title {% if childlink.current %} current {% endif %}"
+											{%- if childlink.current -%} aria-current="page"{%- endif -%}
+										>
+											{{ childlink.title | escape }}
+										</a>
+
+										{%- if childlink.links != blank -%}
+											<ul class="mega-menu-column-list">
+												{%- for grandchildlink in childlink.links -%}
+													<li class="navigation-item">
+														<a
+															href="{{ grandchildlink.url }}"
+															{%- if grandchildlink.current -%} aria-current="page" class="current"{%- endif -%}
+														>
+															{{ grandchildlink.title | escape }}
+														</a>
+													</li>
+												{%- endfor -%}
+											</ul>
+										{%- endif -%}
+									</div>
+								{% endfor %}
+							</div>
+
+							{% if mega_block.settings.side_image != blank or mega_block.settings.side_title != blank or mega_block.settings.side_text != blank %}
+								<div class="mega-menu-column-feature">
+									{% if mega_block.settings.side_url != blank %}
+										<a href="{{ mega_block.settings.side_url }}">
+									{% endif %}
+
+										<div class="mega-menu-feature">
+											{% if mega_block.settings.side_image != blank %}
+												{{ mega_block.settings.side_image | image_url: width: 750 | image_tag:
+													class: 'mega-menu-feature-media',
+													loading: 'lazy',
+													widths: '200, 420, 650, 750',
+													sizes: 'calc((100vw - 3rem - 1rem) / 5)'
+												}}
+											{% endif %}
+
+											{% if mega_block.settings.side_title != blank %}
+												<p class="mega-menu-feature-heading h5">
+													{{ mega_block.settings.side_title }}
+												</p>
+											{% endif %}
+
+											{% if mega_block.settings.side_text != blank %}
+												<div class="mega-menu-feature-text">
+													{{ mega_block.settings.side_text }}
+												</div>
+											{% endif %}
+										</div>
+
+									{% if mega_block.settings.side_url != blank %}
+										</a>
+									{% endif %}
+								</div>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+
+			{% else %}
+				{%- if link.links != blank -%}
+					<ul class="navigation-sub-menu color-{{ section.settings.navigation_submenu_color_scheme }}">
+						{%- for childlink in link.links -%}
+							<li class="navigation-item {% if childlink.links != blank %} has-sub-menu {% endif %}">
+								<a
+									href="{{ childlink.url }}"
+									{%- if childlink.current -%} aria-current="page" class="current"{%- endif -%}
+								>
+									{{ childlink.title | escape }}
+									{%- if childlink.links != blank -%}
+										{% render 'icon-angle' %}
+									{%- endif -%}
+								</a>
+
+								{%- if childlink.links != blank -%}
+									<ul class="navigation-sub-menu">
+										{%- for grandchildlink in childlink.links -%}
+											<li class="navigation-item {% if grandchildlink.links != blank %} has-sub-menu {% endif %}">
+												<a
+													href="{{ grandchildlink.url }}"
+													{%- if grandchildlink.current -%} aria-current="page" class="current"{%- endif -%}
+												>
+													{{ grandchildlink.title | escape }}
+												</a>
+											</li>
+										{%- endfor -%}
+									</ul>
+								{%- endif -%}
+							</li>
+						{%- endfor -%}
+					</ul>
+				{%- endif -%}
+			{% endif %}
+		</li>
+	{%- endfor -%}
+</ul>

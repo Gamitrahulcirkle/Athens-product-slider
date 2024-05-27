@@ -1,0 +1,138 @@
+<div class="productrelated container">  
+  <div class="colContents relatedProduct {% unless hasHasTag %} activerecentlyviewed {% endunless %} clearboth" id="recentlyviewed">
+    <div class="colProductsList fullwidthGrid">
+      <div class="row products collection-matrix">
+        <h3>{{ section.settings.title }}</h3>
+        <div class="recentslider grid product-grid-col" data-slider="yes">
+        </div>        
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+   $(document).ready(function(e) {
+     jQuery.cookie=function(b,j,m){if(typeof j!="undefined"){m=m||{};if(j===null){j="";m.expires=-1}var e="";if(m.expires&&(typeof m.expires=="number"||m.expires.toUTCString)){var f;if(typeof m.expires=="number"){f=new Date();f.setTime(f.getTime()+(m.expires*24*60*60*1000))}else{f=m.expires}e="; expires="+f.toUTCString()}var l=m.path?"; path="+(m.path):"";var g=m.domain?"; domain="+(m.domain):"";var a=m.secure?"; secure":"";document.cookie=[b,"=",encodeURIComponent(j),e,l,g,a].join("")}else{var d=null;if(document.cookie&&document.cookie!=""){var k=document.cookie.split(";");for(var h=0;h<k.length;h++){var c=jQuery.trim(k[h]);if(c.substring(0,b.length+1)==(b+"=")){d=decodeURIComponent(c.substring(b.length+1));break}}}return d}};
+     var config = { 
+      howManyToShow: 5,
+      howManyToStoreInMemory: 10, 
+      wrapperId: 'recently-viewed-products', 
+      templateId: 'recently-viewed-product-template',
+      onComplete: null
+    };
+
+    var productHandleQueue = [];
+    var wrapper = null;
+    var template = null;
+    var shown = 0;
+
+    var cookie = {
+      configuration: {
+        expires: 90,
+        path: '/',
+        domain: window.location.hostname
+      },
+      name: 'shopify_recently_viewed',
+      write: function(recentlyViewed) {
+        jQuery.cookie(this.name, recentlyViewed.join(' '), this.configuration);
+      },
+      read: function() {
+        var recentlyViewed = [];
+        var cookieValue = jQuery.cookie(this.name);
+        if (cookieValue !== null) {
+          recentlyViewed = cookieValue.split(' ');
+        }
+        return recentlyViewed;        
+      },
+      destroy: function() {
+        jQuery.cookie(this.name, null, this.configuration);
+      },
+      remove: function(productHandle) {
+        var recentlyViewed = this.read();
+        var position = jQuery.inArray(productHandle, recentlyViewed);
+        if (position !== -1) {
+          recentlyViewed.splice(position, 1);
+          this.write(recentlyViewed);
+        }       
+      }
+    };
+
+    var recentlyViewed = cookie.read();
+    var productHandle = '{{ product.handle }}';
+    var position = jQuery.inArray(productHandle, recentlyViewed);
+    if (position === -1) {
+      recentlyViewed.unshift(productHandle);
+      recentlyViewed = recentlyViewed.splice(0, config.howManyToStoreInMemory);
+    }
+    else {
+      recentlyViewed.splice(position, 1);
+      recentlyViewed.unshift(productHandle);              
+    }
+    cookie.write(recentlyViewed);
+
+    productHandleQueue = cookie.read();
+    if (productHandleQueue.length > 0 && productHandleQueue[0] != '') {
+      $('.no_recentItem').remove();
+      $('.productrelated').show();
+      for ( var i = 0, l = productHandleQueue.length; i < l; i++ ) {
+        if(i <= 10) {
+         // console.log('  if =', productHandleQueue[i])
+          jQuery.ajax({
+            dataType: 'json',
+            url: '/products/' + productHandleQueue[i] + '.js',
+            cache: false,
+            success: function(product) {
+              //console.log('product =', product)
+              var html = '';
+              var iclass = '';
+              var pid = 'product-'+product.id;
+              if(product.images.length > 1) {
+                var iclass = 'hasTwoImg';
+              }
+              var found_option = false;
+              for(var j = 0; j < product.options.length; j++) {
+                if(product.options[j].name=='Color')  {
+                  found_option	 = true;
+                  var colorTitle = product.options[j].values[0]
+                  var option_index = j;
+                }
+              }
+              
+              html += '<div class="grid-item">';
+              html += '<a href="'+product.url+'"><img src="'+product.featured_image+'" alt="" /></a>';
+              html += '<div class="card-overlay-info">';
+              html += '<h3 class="card-overlay-heading">'+product.title+'</h3>'; 
+              html += '</div>';
+              html += '</div>';
+              $('.recentslider').append(html);
+              $('.recentslider').slick('refresh');
+            },
+            error: function() {
+              cookie.remove(productHandleQueue[i]);
+            }
+          });
+
+        }
+      }
+    } else {
+      $('.productrelated').hide();
+      $('.recentslider').html('<h4 class="no_recentItem">No recently viewed items!</h4>');
+    }
+   })
+</script>
+{% schema %}
+  {
+    "name": "Recently Viewed",
+    "settings": [
+      {
+        "type": "text", 
+        "id": "title", 
+        "label": "Title"
+      }
+    ],
+    
+	"presets": [{
+      "name": "Recently Viewed"
+    }]
+  }
+{% endschema %}

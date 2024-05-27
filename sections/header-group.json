@@ -1,0 +1,112 @@
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "settings": {
+        "text": "Questions? Contact Us",
+        "link": "shopify:\/\/pages\/contact-us",
+        "menu": "side-navigation",
+        "show_social": true,
+        "color_scheme": "accent-1",
+        "remove_border": false,
+        "spacing_top": 1.3,
+        "spacing_bottom": 1.3
+      }
+    },
+    "announcement-bar-secondary": {
+      "type": "announcement-bar-secondary",
+      "settings": {
+        "text": "Always Free Shipping!! 🚚",
+        "link": "",
+        "color_scheme": "accent-1",
+        "remove_border": true,
+        "spacing_top": 1.3,
+        "spacing_bottom": 1.3
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "f3c44220-74e7-4d0b-88fd-048a1b5c648b": {
+          "type": "megamenu",
+          "settings": {
+            "menu_item": "Shop Plant & Trees",
+            "side_title": "",
+            "side_text": "",
+            "side_url": "",
+            "side_position": "right"
+          }
+        },
+        "79e24842-7ca6-43d1-9c3b-b3f5ae84fff4": {
+          "type": "megamenu",
+          "settings": {
+            "menu_item": "Rare Plants",
+            "side_title": "",
+            "side_text": "",
+            "side_url": "",
+            "side_position": "right"
+          }
+        },
+        "3412fd0d-b839-4942-ab79-823bfc534dbf": {
+          "type": "megamenu",
+          "settings": {
+            "menu_item": "About",
+            "side_title": "",
+            "side_text": "",
+            "side_url": "",
+            "side_position": "right"
+          }
+        }
+      },
+      "block_order": [
+        "f3c44220-74e7-4d0b-88fd-048a1b5c648b",
+        "79e24842-7ca6-43d1-9c3b-b3f5ae84fff4",
+        "3412fd0d-b839-4942-ab79-823bfc534dbf"
+      ],
+      "settings": {
+        "logo": "",
+        "svg_logo_code": "",
+        "logo_width": 220,
+        "promo_title": "",
+        "promo_text": "<p><\/p>",
+        "menu": "main-menu",
+        "menu_right": "",
+        "menu_mobile": "",
+        "menu_mobile_expand_on_arrow": false,
+        "menu_font": "body",
+        "enable_language_selector": true,
+        "enable_country_selector": true,
+        "mini_cart_icon": "cart",
+        "redirect_to_cart": false,
+        "enable_sticky_header": true,
+        "header_color_scheme": "background-1",
+        "navigation_color_scheme": "accent-1",
+        "navigation_remove_border": false,
+        "navigation_submenu_color_scheme": "background-1",
+        "mobile_navigation_color_scheme": "background-1",
+        "spacing_top": 3.5,
+        "spacing_bottom": 3.5
+      }
+    },
+    "header-features": {
+      "type": "header-features",
+      "disabled": true,
+      "settings": {
+        "inline": true,
+        "stack_on_mobile": true,
+        "icon_size": "large",
+        "color_scheme": "background-2",
+        "spacing_top": 46,
+        "spacing_bottom": 46
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "announcement-bar-secondary",
+    "header",
+    "header-features"
+  ]
+}

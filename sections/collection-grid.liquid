@@ -1,0 +1,210 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+	assign columns = section.settings.columns
+	assign layout_classes = 'grid'
+
+	if columns >= 5
+		assign layout_classes = 'grid grid-1-col grid-2-col-tablet grid-5-col-desktop grid-compact'
+	elsif columns == 4
+		assign layout_classes = 'grid grid-1-col grid-2-col-tablet grid-4-col-desktop'
+	elsif columns == 1
+		assign layout_classes = 'grid grid-1-col grid-' | append: columns | append: '-col-desktop'
+	else
+		assign layout_classes = 'grid grid-1-col grid-2-col-tablet grid-' | append: columns | append: '-col-desktop'
+	endif
+
+	assign block_section_class = 'block-section'
+	unless section.settings.color_scheme == 'background-1'
+		assign block_section_class = block_section_class | append: ' block-section-padded'
+	endunless
+
+	assign card_class = 'color-background-1'
+%}
+
+<style>
+	#shopify-section-{{ section.id }} .block-section {
+		margin-top: {{ section.settings.spacing_top | times: 0.8 | round: 0 }}px;
+		margin-bottom: {{ section.settings.spacing_bottom | times: 0.8 | round: 0 }}px;
+	}
+
+	#shopify-section-{{ section.id }} .block-section-padded {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: {{ section.settings.spacing_top | times: 0.8 | round: 0 }}px;
+		padding-bottom: {{ section.settings.spacing_bottom | times: 0.8 | round: 0 }}px;
+	}
+
+	@media (min-width: 990px) {
+		#shopify-section-{{ section.id }} .block-section {
+			margin-top: {{ section.settings.spacing_top }}px;
+			margin-bottom: {{ section.settings.spacing_bottom }}px;
+		}
+
+		#shopify-section-{{ section.id }} .block-section-padded {
+			margin-top: 0;
+			margin-bottom: 0;
+			padding-top: {{ section.settings.spacing_top }}px;
+			padding-bottom: {{ section.settings.spacing_bottom }}px;
+		}
+	}
+</style>
+
+<div class="color-{{ section.settings.color_scheme }}">
+	<div class="container">
+		<div class="{{ block_section_class }}">
+			{% if section.settings.heading != blank or section.settings.link_title != blank and section.settings.link_url != blank %}
+				<div class="block-block-section-title-wrapper">
+					{% if section.settings.heading != blank %}
+						<h2 class="block-section-title">{{ section.settings.heading }}</h2>
+					{% endif %}
+
+					{% if section.settings.link_title != blank and section.settings.link_url != blank %}
+						<div class="block-section-title-aux">
+							<a href="{{ section.settings.link_url }}" class="button button-tertiary color-background-1">
+								{{ section.settings.link_title }}
+								{% render 'angle', direction: 'right' %}
+							</a>
+						</div>
+					{% endif %}
+				</div>
+			{% endif %}
+
+			<div class="{{ layout_classes }}">
+				{% for collection in section.settings.collections %}
+					<div class="grid-item">
+						{% render 'card-collection-grid',
+							collection_item: collection,
+							show_image: section.settings.show_image,
+							class: card_class
+						%}
+					</div>
+				{% else %}
+					{% for i in (1..8) %}
+						<div class="grid-item">
+							{% render 'card-collection-grid',
+								show_image: section.settings.show_image,
+								class: card_class
+							%}
+						</div>
+					{% endfor %}
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.collections_grid.name",
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.collections_grid.settings.heading.label",
+      "default": "Collection grid"
+    },
+    {
+      "type": "text",
+      "id": "link_title",
+      "label": "t:sections.collections_grid.settings.link_title.label",
+      "default": "All collections"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "t:sections.collections_grid.settings.link_url.label",
+      "default": "/collections"
+    },
+    {
+      "type": "collection_list",
+      "id": "collections",
+      "label": "t:sections.collections_grid.settings.collections.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image",
+      "default": true,
+      "label": "t:sections.collections_grid.settings.show_image.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.layout.heading"
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 4,
+      "label": "t:sections.all.layout.desktop_columns.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.colors.heading"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.color_scheme.label",
+      "default": "background-1",
+      "options": [
+        {
+          "value": "accent-1",
+          "label": "t:sections.all.colors.accent_1.label"
+        },
+        {
+          "value": "accent-2",
+          "label": "t:sections.all.colors.accent_2.label"
+        },
+        {
+          "value": "accent-3",
+          "label": "t:sections.all.colors.accent_3.label"
+        },
+        {
+          "value": "background-1",
+          "label": "t:sections.all.colors.background_1.label"
+        },
+        {
+          "value": "background-2",
+          "label": "t:sections.all.colors.background_2.label"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.section_spacing.heading"
+    },
+    {
+      "type": "range",
+      "id": "spacing_top",
+      "min": 0,
+      "max": 150,
+      "step": 2,
+      "default": 60,
+      "label": "t:sections.all.section_spacing.spacing_top.label"
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "min": 0,
+      "max": 150,
+      "step": 2,
+      "default": 60,
+      "label": "t:sections.all.section_spacing.spacing_bottom.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.collections_grid.preset.name"
+    }
+  ]
+}
+{% endschema %}

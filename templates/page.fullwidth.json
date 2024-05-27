@@ -1,0 +1,72 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page-fullwidth",
+      "settings": {
+        "hide_heading": false
+      }
+    },
+    "multicolumn_y76wNr": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_CgAjXj": {
+          "type": "column",
+          "settings": {
+            "search": true,
+            "search_place": "Enter a word or phrase here. eg: camella",
+            "image": "shopify:\/\/shop_images\/Advice-Icon-min.png",
+            "image_width": 60,
+            "title": "Search Our Advice",
+            "text": "<p>Type a word or phrase in the search box and a list of helpful expert articles related to your keywords will appear in the list below.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_c6hBKi": {
+          "type": "column",
+          "settings": {
+            "search": true,
+            "search_place": "Enter a word or phrase here. eg: camella",
+            "image": "shopify:\/\/shop_images\/Plant-Search-Icon-min.png",
+            "image_width": 60,
+            "title": "Search our plants",
+            "text": "<p>Enter search words such as plant name, colors, butterflies, hummingbirds, growth rate: fast, slow, etc.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_jJpLPd": {
+          "type": "column",
+          "settings": {
+            "search": false,
+            "search_place": "",
+            "image_width": 550,
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_CgAjXj",
+        "column_c6hBKi",
+        "column_jJpLPd"
+      ],
+      "settings": {
+        "title": "Multicolumn",
+        "columns": 3,
+        "column_alignment": "left",
+        "button_label": "Button label",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "spacing_top": 60,
+        "spacing_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "main",
+    "multicolumn_y76wNr"
+  ]
+}

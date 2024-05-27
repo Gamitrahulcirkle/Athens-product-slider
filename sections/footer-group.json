@@ -1,0 +1,71 @@
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "newsletter_enable": true,
+        "title": "Title",
+        "text": "Description",
+        "consent_checkbox": false,
+        "consent_text": "",
+        "color_scheme": "accent-1",
+        "remove_borders": false,
+        "spacing_top": 30,
+        "spacing_bottom": 30
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "footer-0": {
+          "type": "text",
+          "settings": {
+            "title": "CONTACT INFO",
+            "link": "",
+            "image_width": 340,
+            "text": "<p>add<\/p>"
+          }
+        },
+        "footer-1": {
+          "type": "menu",
+          "settings": {
+            "title": "POLICIES",
+            "menu": "policies"
+          }
+        },
+        "footer-2": {
+          "type": "menu",
+          "settings": {
+            "title": "COMPANY INFO",
+            "menu": "footer"
+          }
+        },
+        "d2a992ed-dfef-4a39-a7bb-1bf1316d3a1d": {
+          "type": "menu",
+          "settings": {
+            "title": "SHOP",
+            "menu": "shop-1"
+          }
+        }
+      },
+      "block_order": [
+        "footer-0",
+        "footer-1",
+        "footer-2",
+        "d2a992ed-dfef-4a39-a7bb-1bf1316d3a1d"
+      ],
+      "settings": {
+        "payment_enable": true,
+        "show_social": true,
+        "enable_follow_on_shop": true,
+        "color_scheme": "background-2"
+      }
+    }
+  },
+  "order": [
+    "newsletter",
+    "footer"
+  ]
+}

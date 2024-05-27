@@ -1,0 +1,5 @@
+/* Component - Tabs Component
+=================================== */
+.tabs-component-content[aria-hidden=true] {
+  display: none;
+}

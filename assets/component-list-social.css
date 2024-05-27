@@ -1,0 +1,40 @@
+/* Component - Social list
+=================================== */
+.list-social {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  grid-gap: 0.5rem;
+}
+
+.list-social-item {
+  padding: 0;
+  margin: 0;
+}
+
+.list-social-link {
+  width: 3.2rem;
+  height: 3.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.1rem rgb(var(--color-foreground), 0.25);
+  line-height: 0;
+}
+
+.list-social-link:hover {
+  box-shadow: 0 0 0 0.1rem rgb(var(--color-foreground), 0.5);
+}
+
+.list-social-link svg {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.list-social-link svg path {
+  fill: rgb(var(--color-foreground), 0.9);
+}

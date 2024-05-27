@@ -1,0 +1,285 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "show_vendor": false,
+            "show_stock": false,
+            "show_sku": false,
+            "show_barcode": false,
+            "barcode_label": "",
+            "show_rating": false,
+            "hide_empty_star_rating": false,
+            "show_custom_badges": false
+          }
+        },
+        "text_qcfgYh": {
+          "type": "text",
+          "settings": {
+            "show_stock": true,
+            "show_rating": true,
+            "text": "scientific_plant_name",
+            "icon": "",
+            "text_2": "Other Names: other_plant_names",
+            "icon_2": "",
+            "text_3": "",
+            "icon_3": "",
+            "text_4": "",
+            "icon_4": "",
+            "color_scheme": "none"
+          }
+        },
+        "subtitle": {
+          "type": "text",
+          "settings": {
+            "show_stock": false,
+            "show_rating": false,
+            "text": "{{ product.metafields.descriptors.subtitle.value }}",
+            "icon": "plus",
+            "text_2": "displaytext",
+            "icon_2": "truck",
+            "text_3": "shipping_restrictions",
+            "icon_3": "",
+            "text_4": "shipping_info",
+            "icon_4": "",
+            "color_scheme": "none"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variants": {
+          "type": "variants",
+          "settings": {
+            "picker_type": "button",
+            "hide_single_variant": true,
+            "out_of_stock_variants": "show"
+          }
+        },
+        "qty_notify_y3UD6z": {
+          "type": "qty_notify",
+          "settings": {
+            "qty": 10,
+            "enable_form": true
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity": true,
+            "show_add_to_cart": true,
+            "show_buy_now": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "availability": {
+          "type": "availability",
+          "settings": {
+          }
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "title": "Description",
+            "icon": "info",
+            "expanded": true
+          }
+        },
+        "eea96e9d-f68b-4810-a414-c3f6e156f1cb": {
+          "type": "expandable",
+          "disabled": true,
+          "settings": {
+            "title": "Sample Garden",
+            "icon": "attachment",
+            "text": "<p>sample_garden<\/p>",
+            "expanded": false
+          }
+        },
+        "0e0a8bfa-b407-43d1-8a64-67353831a02f": {
+          "type": "expandable",
+          "disabled": true,
+          "settings": {
+            "title": "Care",
+            "icon": "heart",
+            "text": "<p>care<\/p>",
+            "expanded": false
+          }
+        },
+        "ecee6952-5fb8-43f5-913a-ab4a35fd5c7f": {
+          "type": "expandable",
+          "disabled": true,
+          "settings": {
+            "title": "Why Wilson Bros?",
+            "icon": "award",
+            "text": "<p>why_wilson_bros<\/p><p><\/p><p><\/p><p><\/p><p><\/p><p><\/p><p><\/p>",
+            "expanded": false
+          }
+        },
+        "823ad903-baf4-4469-9c95-bda6d1903168": {
+          "type": "expandable",
+          "disabled": true,
+          "settings": {
+            "title": "How We Ship",
+            "icon": "store",
+            "text": "<p>how_we_ship<\/p>",
+            "expanded": false
+          }
+        },
+        "7118293f-200b-470e-84fd-d48c59f6b62b": {
+          "type": "expandable",
+          "disabled": true,
+          "settings": {
+            "title": "Video",
+            "icon": "youtube",
+            "text": "<p>video<\/p>",
+            "expanded": false
+          }
+        },
+        "d25e3199-5b70-4c86-b483-bc9221e28712": {
+          "type": "expandable",
+          "disabled": true,
+          "settings": {
+            "title": "USDA Zone Map",
+            "icon": "map",
+            "text": "<p>usda_zone_map<\/p>",
+            "expanded": false
+          }
+        },
+        "32971a96-8de4-475b-af7e-ed57dc0e3fb7": {
+          "type": "expandable",
+          "disabled": true,
+          "settings": {
+            "title": "Planting & Care",
+            "icon": "heart",
+            "text": "<p>planting_care_advice<\/p>",
+            "expanded": false
+          }
+        },
+        "e5a506ab-125d-4692-9cd7-889c9374e110": {
+          "type": "expandable",
+          "disabled": true,
+          "settings": {
+            "title": "Size Info",
+            "icon": "",
+            "text": "<p>size_info<\/p>",
+            "expanded": false
+          }
+        },
+        "892d3706-d752-48ec-8ec1-94d9fb34bb6e": {
+          "type": "expandable",
+          "disabled": true,
+          "settings": {
+            "title": "Customer Reviews",
+            "icon": "chat",
+            "text": "<p>s<\/p>",
+            "expanded": false
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "text_qcfgYh",
+        "subtitle",
+        "price",
+        "variants",
+        "qty_notify_y3UD6z",
+        "buy_buttons",
+        "availability",
+        "description",
+        "eea96e9d-f68b-4810-a414-c3f6e156f1cb",
+        "0e0a8bfa-b407-43d1-8a64-67353831a02f",
+        "ecee6952-5fb8-43f5-913a-ab4a35fd5c7f",
+        "823ad903-baf4-4469-9c95-bda6d1903168",
+        "7118293f-200b-470e-84fd-d48c59f6b62b",
+        "d25e3199-5b70-4c86-b483-bc9221e28712",
+        "32971a96-8de4-475b-af7e-ed57dc0e3fb7",
+        "e5a506ab-125d-4692-9cd7-889c9374e110",
+        "892d3706-d752-48ec-8ec1-94d9fb34bb6e"
+      ],
+      "settings": {
+        "hide_variants": false,
+        "thumbnail_navigation": true,
+        "thumbnail_layout": "vertical",
+        "image_zoom_type": "lightbox_zoom_hover",
+        "image_disclaimer": "",
+        "text_1": "scientific_plant_name",
+        "text_2": "usda_zones"
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "show": true,
+        "title": "Related products",
+        "count": "5",
+        "show_vendor": true,
+        "show_stock": true,
+        "show_rating": false,
+        "color_scheme": "background-1",
+        "spacing_top": 60,
+        "spacing_bottom": 60
+      }
+    },
+    "reletated_product_JiPkqM": {
+      "type": "reletated-product",
+      "settings": {
+        "title": "Related Items"
+      }
+    },
+    "recently_view_ppE3eJ": {
+      "type": "recently-view",
+      "settings": {
+        "title": "RECENTLY VIEWED"
+      }
+    },
+    "tabs_section_CxtiEC": {
+      "type": "tabs-section",
+      "blocks": {
+        "product_description_cMzGxf": {
+          "type": "product_description",
+          "settings": {
+            "tab_title": "Description",
+            "tab_content": ""
+          }
+        },
+        "tab_Lcdrh9": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "FAQs",
+            "tab_content": ""
+          }
+        },
+        "tab_FdYzdN": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Shipping",
+            "tab_content": "<p>dev test<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "product_description_cMzGxf",
+        "tab_Lcdrh9",
+        "tab_FdYzdN"
+      ],
+      "settings": {
+        "short_description": "",
+        "scientific_title": "",
+        "scientific_name": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "recommendations",
+    "reletated_product_JiPkqM",
+    "recently_view_ppE3eJ",
+    "tabs_section_CxtiEC"
+  ]
+}

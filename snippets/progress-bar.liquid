@@ -1,0 +1,64 @@
+{% comment %} FreeShiping progress bar {% endcomment %}
+
+{% if settings.free_shipping_enabled and cart != empty %}
+
+  {% assign inr_amount = settings.free_shipping_threshold | plus:0 %}
+  {% comment %}
+  {% assign usd_rate = 0.0145 %}
+  {% assign jpy_rate = 1.55 %}
+  {% assign cad_rate = 0.018 %}
+  {% assign aud_rate = 0.0205 %}
+  {% assign eur_rate = 0.012 %}
+  
+ 
+  
+  {% assign current_currency = cart.currency.iso_code %}
+  {% if current_currency == 'JPY' %}
+    {% assign country_amount = inr_amount | times: jpy_rate %}
+  {% elsif current_currency == 'CAD' %}
+    {% assign country_amount = inr_amount | times: cad_rate %}
+  {% elsif current_currency == 'AUD' %}
+    {% assign country_amount = inr_amount | times: aud_rate %}
+  {% elsif current_currency == 'EUR' %}
+    {% assign country_amount = inr_amount | times: eur_rate %}
+  {% elsif current_currency == 'USD' %}
+    {% assign country_amount = inr_amount | times: usd_rate %}
+  {% else %}
+    {% assign country_amount = inr_amount %}
+  {% endif %}
+  {{ country_amount }} {{ "==" }} {{ cart.total_price }}
+  {% endcomment %}
+  
+  {% assign free_shipping_threshold = inr_amount | times: 100 %}
+  <div class="mini-cart-content-notice mini-cart-content-notice-free-shipping">
+    {% if cart.total_price >= free_shipping_threshold %}
+      <span class="progress_bar_msg">{{ 'templates.cart.free_shipping.amount_reached' | t }}</span>
+    {% else %}
+      {% assign amount_left = free_shipping_threshold | minus: cart.total_price | money %}
+      <span class="progress_bar_msg">{{ 'templates.cart.free_shipping.amount_required' | t: amount: amount_left }}</span>
+    {% endif %}
+  
+    <div class="free-shipping-progress" data-cart_total="{{ cart.total_price }}" >
+      <div class="progress-bar" style="width:0%; transition: width 0.5s ease;"></div>
+    </div>
+  </div>
+{% endif %}
+
+
+<style>  
+.free-shipping-progress {
+  width: 100%;
+  height: 1rem;
+  background-color: #f0f0f0;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0;
+  background-color: #4caf50;
+  transition: width 0.5s ease;
+}
+
+</style>

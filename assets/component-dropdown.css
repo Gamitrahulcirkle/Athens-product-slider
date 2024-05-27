@@ -1,0 +1,183 @@
+/* Component - Dropdown
+============================================ */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown.dropdown-down .dropdown-list-wrap {
+  top: 100%;
+}
+
+.dropdown.dropdown-up .dropdown-list-wrap {
+  bottom: 100%;
+}
+
+.dropdown.dropdown-up .dropdown-toggle .angle {
+  transform: rotate(180deg);
+}
+
+.dropdown.dropdown-left .dropdown-list-wrap {
+  left: 0;
+}
+
+.dropdown.dropdown-right .dropdown-list-wrap {
+  right: 0;
+}
+
+.dropdown-toggle {
+  font-family: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  padding: 1rem 0;
+  text-decoration: none;
+  background: none;
+  box-shadow: none;
+  height: auto;
+  font-size: calc(var(--font-body-scale) * 1.4rem);
+  line-height: calc(1 + 0.2 / var(--font-body-scale));
+  border-radius: 0;
+  font-weight: var(--font-bolder-weight);
+  text-transform: uppercase;
+  color: rgb(var(--color-foreground-alt));
+}
+
+.dropdown-toggle-button .dropdown-toggle {
+  border-radius: var(--border-radius-base);
+  background: rgb(var(--color-background));
+  color: rgb(var(--color-foreground-alt));
+  box-shadow: 0 0 0 0.1rem var(--color-border), 0 3px 0 var(--color-box-shadow);
+  padding: 0.5rem 1.5rem;
+  height: 4.2rem;
+  text-transform: none;
+  font-weight: 400;
+}
+
+.dropdown-toggle-button .dropdown-toggle .angle {
+  margin-left: auto;
+  margin-right: 0.75rem;
+  top: 0;
+}
+
+.dropdown-toggle .angle {
+  margin-left: 0.5rem;
+  position: relative;
+  top: -0.3rem;
+  font-size: 1rem;
+}
+
+.no-js .dropdown-toggle:focus-within + .dropdown-list-wrap {
+  transition-delay: 0s, 0s, 0s;
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1.001);
+  z-index: 75;
+}
+
+@media (hover: none) {
+  .no-js .dropdown-toggle:hover + .dropdown-list-wrap {
+    transition-delay: 0s, 0s, 0s;
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1.001);
+    z-index: 75;
+  }
+}
+
+.dropdown-list-wrap {
+  box-shadow: inset 0 0 0 1px var(--color-border), 0 3px 0 var(--color-box-shadow);
+  background-color: rgb(var(--color-background));
+  position: absolute;
+  z-index: 70;
+  background: rgb(var(--color-background));
+  padding: 1.5rem 0;
+  border-radius: var(--border-radius-base);
+  max-height: 30rem;
+  min-width: 15rem;
+  overflow-y: auto;
+  visibility: hidden;
+  transform: scale(0.9);
+  opacity: 0;
+  transition: transform 0.25s ease, opacity 0.25s ease, visibility 0s ease 0.35s;
+  will-change: transform;
+}
+
+[aria-expanded=true] + .dropdown-list-wrap {
+  transition-delay: 0s, 0s, 0s;
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1.001);
+  z-index: 75;
+}
+
+.no-js .dropdown-list-wrap:focus-within {
+  transition-delay: 0s, 0s, 0s;
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1.001);
+  z-index: 75;
+}
+
+.dropdown-list {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: calc(var(--font-body-scale) * 1.4rem);
+}
+
+.dropdown-list-item {
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.dropdown-list-option {
+  display: block;
+  padding: 1.4rem 2rem;
+  color: rgb(var(--color-foreground));
+  text-underline-offset: 0.3rem;
+  text-decoration-thickness: 0.1rem;
+  text-decoration-color: transparent;
+  transition: text-decoration .18s ease;
+}
+
+@media (min-width: 750px) {
+  .dropdown-list-option {
+    padding: 0.25rem 2rem;
+  }
+}
+
+.dropdown-list-option:hover {
+  text-decoration: underline;
+}
+
+/* Localization forms
+=================================== */
+.head-slot-item > noscript .localization-form {
+  display: flex;
+  align-items: center;
+}
+
+.head-slot-item > noscript .localization-form select {
+  padding-left: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border: 0;
+  box-shadow: none;
+}
+
+.head-slot-item > noscript .localization-form .button {
+  height: auto;
+  padding: 1rem 0.6rem;
+  min-width: 0;
+  margin-left: 1px;
+}
+
+.head-slot-item > noscript .localization-form .button .angle {
+  margin: 0;
+  color: currentColor;
+}

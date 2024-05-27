@@ -1,0 +1,29 @@
+{% comment %}
+	Renders the header search form
+
+	Usage:
+	{% render 'header-search' %}
+{% endcomment %}
+
+<div class="head-slot-item header-search-global">
+	{%- if settings.predictive_search_enabled -%}
+		{%- capture result_types -%}
+			product
+			{%- if settings.predictive_search_queries -%},query{%- endif -%}
+			{%- if settings.predictive_search_collections -%},collection{%- endif -%}
+			{%- if settings.predictive_search_articles -%},article{%- endif -%}
+			{%- if settings.predictive_search_pages -%},page{%- endif -%}
+		{%- endcapture -%}
+		<predictive-search class="header-search-global-component"
+			data-loading-text="{{ 'accessibility.loading' | t }}"
+			data-limit="{{ settings.predictive_search_limit }}"
+			data-limit-scope="{{ settings.predictive_search_limit_scope }}"
+			data-unavailable="{{ settings.predictive_search_unavailable }}"
+			data-types="{{ result_types }}"
+		>
+	{%- endif -%}
+        
+	{%- if settings.predictive_search_enabled -%}
+		</predictive-search>
+	{%- endif -%}
+</div>
